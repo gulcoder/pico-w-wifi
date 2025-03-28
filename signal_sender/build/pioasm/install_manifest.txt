@@ -1,0 +1,5 @@
+/Users/gulbaran/pico_projects/signal_sender/build/pioasm-install/pioasm/pioasm
+/Users/gulbaran/pico_projects/signal_sender/build/pioasm-install/pioasm/pioasmTargets.cmake
+/Users/gulbaran/pico_projects/signal_sender/build/pioasm-install/pioasm/pioasmTargets-release.cmake
+/Users/gulbaran/pico_projects/signal_sender/build/pioasm-install/pioasm/pioasmConfig.cmake
+/Users/gulbaran/pico_projects/signal_sender/build/pioasm-install/pioasm/pioasmConfigVersion.cmake
