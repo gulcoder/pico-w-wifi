@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "pico_cyw43_arch.h"
+#include "pico/cyw43_arch.h"
 #include "lwip/sockets.h"
 #include "lwip/netdb.h"
 #include <string>
-#include "cyw43_configport.h"
 
-#define WIFI_SSID "XXXX"
-#define WIFI_PASSWORD "XXXXX"
-#define SERVER_URL "XXXXX"
+#define WIFI_SSID "DittWiFiNamn"
+#define WIFI_PASSWORD "DittWiFiLösenord"
+#define SERVER_URL "http://din-server.com/api"
 
 void send_signal() {
     int sock;
@@ -23,7 +22,7 @@ void send_signal() {
 
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(80);
-    inet_aton(XXXXX, &server_addr.sin_addr); 
+    inet_aton("123.456.789.0", &server_addr.sin_addr); // Ersätt med din server-IP
 
     // Anslut till server
     if (connect(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
@@ -33,7 +32,7 @@ void send_signal() {
     }
 
     // Skicka data
-    std::string message = "GET /api/signal HTTP/1.1\r\nHost: XXXXXX\n";
+    std::string message = "GET /api/signal HTTP/1.1\r\nHost: din-server.com\r\n\r\n";
     send(sock, message.c_str(), message.length(), 0);
 
     printf("📡 Signal skickad till server!\n");
@@ -57,5 +56,12 @@ int main() {
         printf("❌ Kunde inte ansluta till WiFi\n");
         return -1;
     }
-    printf("✅ Ansluten till WiFi
+    printf("✅ Ansluten till WiFi!\n");
+
+    // Skicka signaler var 5:e sekund
+    while (true) {
+        send_signal();
+        sleep_ms(5000);
+    }
+}
 
