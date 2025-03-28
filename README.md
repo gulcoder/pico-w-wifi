@@ -7,3 +7,7 @@ Detta projekt visar hur du ansluter en **Raspberry Pi Pico W** till ett WiFi-nä
 - Skrivet i **C++** med stöd för **CMake**.
 - Kompatibelt med **Pico SDK**.
 
+´´´bash
+https://github.com/gulcoder/pico-w-wifi.git
+
+´´´
